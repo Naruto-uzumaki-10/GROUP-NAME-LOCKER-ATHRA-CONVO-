@@ -9,66 +9,46 @@
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg,#ff00cc,#a100ff);
+  background: linear-gradient(135deg,#ff00cc,#6600ff);
   display:flex;
   justify-content:center;
+  padding:20px;
 }
 
 .container{
-  width:95%;
-  max-width:500px;
-  padding:20px;
+  width:100%;
+  max-width:420px;
 }
 
 .card{
-  background: linear-gradient(180deg,#c800ff,#8a00ff);
+  background: linear-gradient(180deg,#a100ff,#6a00ff);
   padding:20px;
   border-radius:25px;
-  box-shadow:0 0 25px rgba(0,0,0,0.4);
-  margin-bottom:30px;
-}
-
-h1{
-  text-align:center;
-  color:white;
-  text-shadow:0 0 20px #fff;
-}
-
-.subtitle{
-  text-align:center;
-  color:yellow;
-  font-weight:bold;
-  margin-bottom:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  margin-bottom:25px;
 }
 
 label{
-  color:yellow;
+  color:#ffe600;
   font-weight:bold;
-  display:block;
-  margin-top:15px;
+  font-size:16px;
 }
 
-input, textarea{
+input{
   width:100%;
   padding:15px;
+  margin-top:10px;
+  margin-bottom:20px;
   border:none;
-  border-radius:15px;
-  margin-top:5px;
-  font-size:16px;
-  background:rgba(255,255,255,0.2);
+  border-radius:20px;
+  background:#7b00ff;
   color:white;
-  outline:none;
-}
-
-textarea{
-  height:120px;
-  resize:none;
+  font-size:16px;
 }
 
 button{
   width:100%;
-  padding:15px;
-  margin-top:20px;
+  padding:16px;
   border:none;
   border-radius:30px;
   font-size:18px;
@@ -77,25 +57,37 @@ button{
 }
 
 .start-btn{
-  background: linear-gradient(90deg,#ff4b7d,#ff00cc);
+  background: linear-gradient(90deg,#ff4d6d,#ff0080);
   color:white;
-  box-shadow:0 0 20px #ff4b7d;
 }
 
 .clear-btn{
-  background: gold;
+  background:#ffd600;
   color:black;
-  box-shadow:0 0 20px gold;
+  margin-top:15px;
 }
 
+/* TERMINAL STYLE */
 .logs{
-  height:200px;
-  overflow-y:auto;
-  background:rgba(0,0,0,0.2);
-  padding:10px;
-  border-radius:15px;
-  color:white;
+  margin-top:20px;
+  background: rgba(0,0,0,0.95);
+  border-radius:20px;
+  padding:20px;
+  height:220px;
+  overflow:auto;
+  color:#00ff88;
+  font-family: 'Courier New', monospace;
   font-size:14px;
+  box-shadow: 0 0 25px rgba(0,255,150,0.4);
+  border:1px solid rgba(0,255,150,0.3);
+}
+
+.logs::-webkit-scrollbar{
+  width:5px;
+}
+.logs::-webkit-scrollbar-thumb{
+  background:#00ff88;
+  border-radius:10px;
 }
 </style>
 </head>
@@ -104,33 +96,71 @@ button{
 
 <div class="container">
 
-<div class="card">
-<h1>👑 SADHIN BOT PANEL 👑</h1>
-<p class="subtitle">✨ Your Ultimate Bot Control Center ✨</p>
+  <div class="card">
+    <label>Bot Prefix (Default "/"):</label>
+    <input type="text" value="+">
 
-<label>Facebook AppState (JSON):</label>
-<textarea placeholder="Paste your Facebook appState JSON here"></textarea>
+    <label>Admin Facebook ID:</label>
+    <input type="text" value="61587452159004">
 
-<label>Bot Prefix (Default "/"):</label>
-<input type="text" value="/" />
+    <button class="start-btn" onclick="startBot()">Start Bot 🚀</button>
+  </div>
 
-<label>Admin Facebook ID:</label>
-<input type="text" placeholder="Your Facebook user ID" />
+  <div class="card">
+    <h2 style="color:white;">
+      Bot Logs <span style="color:#00ff88;">● LIVE</span>
+    </h2>
 
-<button class="start-btn">Start Bot 🚀</button>
-</div>
+    <button class="clear-btn" onclick="clearLogs()">Clear Logs</button>
 
-<div class="card">
-<h2 style="color:white;">Bot Logs 📝</h2>
-<button class="clear-btn">Clear Logs</button>
-
-<div class="logs">
-[ SADHIN BOT ] System Ready...<br>
-[ SADHIN BOT ] Waiting for connection...<br>
-</div>
-</div>
+    <div class="logs" id="logs">
+> SADHIN BOT PANEL READY...
+    </div>
+  </div>
 
 </div>
+
+<script>
+let running = false;
+
+function addLine(text){
+  const logs = document.getElementById("logs");
+  logs.innerHTML += "<br>" + text;
+  logs.scrollTop = logs.scrollHeight;
+}
+
+function startBot(){
+  if(running) return;
+  running = true;
+
+  const btn = document.querySelector(".start-btn");
+  btn.innerText = "Bot Running";
+  btn.disabled = true;
+  btn.style.opacity = "0.7";
+
+  addLine("> Initializing SADHIN BOT...");
+  
+  setTimeout(() => {
+    addLine("> Connecting to secure server...");
+  }, 800);
+
+  setTimeout(() => {
+    addLine("> Loading core modules...");
+  }, 1600);
+
+  setTimeout(() => {
+    addLine("> System check complete.");
+  }, 2400);
+
+  setTimeout(() => {
+    addLine("> ✅ BOT STATUS: ONLINE");
+  }, 3200);
+}
+
+function clearLogs(){
+  document.getElementById("logs").innerHTML="> Logs Cleared...";
+}
+</script>
 
 </body>
 </html>
