@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SADHIN BOT PANEL</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg,#ff00cc,#a100ff);
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:95%;
+  max-width:500px;
+  padding:20px;
+}
+
+.card{
+  background: linear-gradient(180deg,#c800ff,#8a00ff);
+  padding:20px;
+  border-radius:25px;
+  box-shadow:0 0 25px rgba(0,0,0,0.4);
+  margin-bottom:30px;
+}
+
+h1{
+  text-align:center;
+  color:white;
+  text-shadow:0 0 20px #fff;
+}
+
+.subtitle{
+  text-align:center;
+  color:yellow;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+label{
+  color:yellow;
+  font-weight:bold;
+  display:block;
+  margin-top:15px;
+}
+
+input, textarea{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:15px;
+  margin-top:5px;
+  font-size:16px;
+  background:rgba(255,255,255,0.2);
+  color:white;
+  outline:none;
+}
+
+textarea{
+  height:120px;
+  resize:none;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  margin-top:20px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.start-btn{
+  background: linear-gradient(90deg,#ff4b7d,#ff00cc);
+  color:white;
+  box-shadow:0 0 20px #ff4b7d;
+}
+
+.clear-btn{
+  background: gold;
+  color:black;
+  box-shadow:0 0 20px gold;
+}
+
+.logs{
+  height:200px;
+  overflow-y:auto;
+  background:rgba(0,0,0,0.2);
+  padding:10px;
+  border-radius:15px;
+  color:white;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+<h1>👑 SADHIN BOT PANEL 👑</h1>
+<p class="subtitle">✨ Your Ultimate Bot Control Center ✨</p>
+
+<label>Facebook AppState (JSON):</label>
+<textarea placeholder="Paste your Facebook appState JSON here"></textarea>
+
+<label>Bot Prefix (Default "/"):</label>
+<input type="text" value="/" />
+
+<label>Admin Facebook ID:</label>
+<input type="text" placeholder="Your Facebook user ID" />
+
+<button class="start-btn">Start Bot 🚀</button>
+</div>
+
+<div class="card">
+<h2 style="color:white;">Bot Logs 📝</h2>
+<button class="clear-btn">Clear Logs</button>
+
+<div class="logs">
+[ SADHIN BOT ] System Ready...<br>
+[ SADHIN BOT ] Waiting for connection...<br>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
